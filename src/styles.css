@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+.jumbotron, .navbar, .btn, .alert, input, textarea, select {
+  border-radius: 0px !important;
+}
+
+.jumbotron {
+  margin-bottom: 0px;
+}

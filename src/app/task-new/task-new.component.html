@@ -1,0 +1,47 @@
+<h2>Task New</h2>
+
+<form (submit)="addTask()" #taskForm="ngForm">
+  <div class="form-group">
+    <label class="control-label" for="title">Title: </label>
+    <input type="text" class="form-control" id="title" name="title" [(ngModel)]="newTask.title" required minlength="5" #myTitle="ngModel">
+    <div class="alert alert-danger" *ngIf="myTitle.invalid && (myTitle.touched || myTitle.dirty)">
+      <span *ngIf="myTitle.errors.required">
+        Title is required!
+      </span>
+      <span *ngIf="myTitle.errors.minlength">
+        Title must be 5 characters or more!
+      </span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label" for="description">Description: </label>
+    <textarea class="form-control" id="description" name="description" [(ngModel)]="newTask.description" required minlength="10" #myDescription="ngModel"></textarea>
+    <div class="alert alert-danger" *ngIf="myDescription.invalid && (myDescription.touched || myDescription.dirty)">
+      <span *ngIf="myDescription.errors.required">
+        Description is required!
+      </span>
+      <span *ngIf="myDescription.errors.minlength">
+        Description must be 10 characters or more!
+      </span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label" for="date">Date: </label>
+    <input type="date" class="form-control" id="date" name="date" [(ngModel)]="newTask.date" required #myDate="ngModel">
+    <div class="alert alert-danger" *ngIf="myDate.invalid && (myDate.touched || myDate.dirty)">
+      <span *ngIf="myDate.errors.required">
+        Date is required!
+      </span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label" for="time">Time: </label>
+    <input type="time" class="form-control" id="time" name="time" [(ngModel)]="newTask.time" required #myTime="ngModel">
+    <div class="alert alert-danger" *ngIf="myTime.invalid && (myTime.touched || myTime.dirty)">
+      <span *ngIf="myTime.errors.required">
+        Time is required!
+      </span>
+    </div>
+  </div>
+  <input type="submit" class="btn btn-success" value="Add Task" [(disabled)]="taskForm.invalid">
+</form>

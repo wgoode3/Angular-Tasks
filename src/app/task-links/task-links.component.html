@@ -1,0 +1,13 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" [routerLink]="['/']">Angular Tasks</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li *ngIf="tasklist" class="active"><a [routerLink]="['/']">Task List</a></li>
+      <li *ngIf="!tasklist"><a [routerLink]="['/']">Task List</a></li>
+      <li *ngIf="tasknew" class="active"><a [routerLink]="['/new']">Task New</a></li>
+      <li *ngIf="!tasknew"><a [routerLink]="['/new']">Task New</a></li>
+    </ul>
+  </div>
+</nav>
