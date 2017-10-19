@@ -1,33 +1,35 @@
-<h2>Task List</h2>
+<div class="col-sm-12">
+  <h2>Task List</h2><hr>
 
-<table class="table table-striped">
-  <tr>
-    <th>Title</th>
-    <th>Status</th>
-    <th>Set Status</th>
-    <th>Actions</th>
-  </tr>
-  <tr *ngFor="let task of tasks, index as i">
-      <td>
-          <a [routerLink]="['task', task.id]">{{ task.title }}</a>
-      </td>
-      <td>
-        <span *ngIf="task.status == 'pending'" class="label label-warning">{{ task.status }}</span>
-        <span *ngIf="task.status == 'completed'" class="label label-success">{{ task.status }}</span>
-        <span *ngIf="task.status == 'cancelled'" class="label label-danger">{{ task.status }}</span>
-      </td>
-      <td>
-        <form>
-          <select name="status" [(ngModel)]="tasks[i].status" class="form-control">
-            <option>pending</option>
-            <option>completed</option>
-            <option>cancelled</option>
-          </select>
-        </form>
-      </td>
-      <td>
-        <a [routerLink]="['task', task.id, 'edit']"><button class="btn btn-sm btn-primary">Edit</button></a>
-        <button (click)="delete(task.id)" class="btn btn-sm btn-danger">Delete</button>
-      </td>
-  </tr>
-</table>
+  <table class="table table-striped">
+    <tr>
+      <th>Title</th>
+      <th>Status</th>
+      <th>Set Status</th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor="let task of tasks, index as i">
+        <td>
+            <a [routerLink]="['task', task.id]">{{ task.title }}</a>
+        </td>
+        <td>
+          <span *ngIf="task.status == 'pending'" class="label label-warning">{{ task.status }}</span>
+          <span *ngIf="task.status == 'completed'" class="label label-success">{{ task.status }}</span>
+          <span *ngIf="task.status == 'cancelled'" class="label label-danger">{{ task.status }}</span>
+        </td>
+        <td>
+          <form>
+            <select name="status" [(ngModel)]="tasks[i].status" class="form-control">
+              <option>pending</option>
+              <option>completed</option>
+              <option>cancelled</option>
+            </select>
+          </form>
+        </td>
+        <td>
+          <a [routerLink]="['task', task.id, 'edit']"><button class="btn btn-sm btn-primary">Edit</button></a>
+          <button (click)="delete(task.id)" class="btn btn-sm btn-danger">Delete</button>
+        </td>
+    </tr>
+  </table>
+</div>
